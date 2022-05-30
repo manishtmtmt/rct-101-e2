@@ -17,7 +17,6 @@ import React, { useState } from "react";
 const AddProduct = ({ setProducts }) => {
   const [data, setData] = useState({});
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [value, setValue] = React.useState("");
 
   const onChange = (e) => {
     let { name, value } = e.target;
