@@ -1,5 +1,7 @@
 import {
+  Box,
   Button,
+  Flex,
   FormControl,
   Heading,
   Input,
@@ -12,6 +14,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+import styles from './styles.module.css'
 
 const AddProduct = ({ setProducts, products }) => {
   const [data, setData] = useState({});
@@ -28,6 +31,7 @@ const AddProduct = ({ setProducts, products }) => {
   };
 
   const onSubmit = () => {
+    onClose();
     fetch(`http://localhost:8080/products`, {
       method: "POST",
       headers: {
@@ -43,13 +47,15 @@ const AddProduct = ({ setProducts, products }) => {
   };
   return (
     <>
-      <Button my={4} data-cy="add-product-button" onClick={onOpen}>
+      <Button my={4} data-cy="add-product-button" onClick={onOpen} className={styles.button} >
         Add New Product
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalBody pb={6}>
-          <Heading>Add New Product</Heading>
+        <ModalBody pb={6} className={styles.modalBody} p="6">
+          <Heading fontSize="2xl">Add New Product</Heading>
           <FormControl>
+            <Flex flexDirection="column" gap="3" p="4">
+              <Box>
             <Text fontSize="lg" fontWeight="bold">
               Title
             </Text>
@@ -59,6 +65,8 @@ const AddProduct = ({ setProducts, products }) => {
               name="title"
               onChange={onChange}
             />
+            </Box>
+            <Box>
             <Text fontSize="lg" fontWeight="bold">
               Category
             </Text>
@@ -72,6 +80,8 @@ const AddProduct = ({ setProducts, products }) => {
               <option data-cy="add-product-category-pant">Pant</option>
               <option data-cy="add-product-category-jeans">Jeans</option>
             </Select>
+            </Box>
+            <Box>
             <Text fontSize="lg" fontWeight="bold">
               Gender
             </Text>
@@ -101,6 +111,8 @@ const AddProduct = ({ setProducts, products }) => {
                 Unisex
               </Radio>
             </RadioGroup>
+            </Box>
+            <Box>
             <Text fontSize="lg" fontWeight="bold">
               Price
             </Text>
@@ -110,10 +122,14 @@ const AddProduct = ({ setProducts, products }) => {
               name="price"
               onChange={onChange}
             />
+            </Box>
+            <Flex gap={2}>
             <Button data-cy="add-product-submit-button" onClick={onSubmit}>
               Submit
             </Button>
             <Button onClick={onClose}>Close</Button>
+            </Flex>
+            </Flex>
           </FormControl>
         </ModalBody>
       </Modal>
