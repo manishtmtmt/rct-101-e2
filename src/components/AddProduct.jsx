@@ -14,30 +14,31 @@ import {
 import axios from "axios";
 import React, { useState } from "react";
 
-const AddProduct = ({ setProducts }) => {
+const AddProduct = ({ setProducts, products }) => {
   const [data, setData] = useState({});
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  
   const onChange = (e) => {
     let { name, value } = e.target;
     setData({
       ...data,
       [name]: value,
+      ["imageSrc"]:
+        "https://i.picsum.photos/id/294/422/262.jpg?hmac=wch3sY2mDv9xnRAAcA6otJUw2AP6jhIAZQtba3LYgKc",
     });
   };
-  console.log(data);
 
   const onSubmit = () => {
-    axios
-      .get(`http://localhost:8080/products`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({ ...data }),
-      })
-      .then((r) => {
-        setProducts({ ...data, r });
+    fetch(`http://localhost:8080/products`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ ...data }),
+    })
+      .then((r) => r.json())
+      .then((d) => {
+        setProducts([...products, d]);
         setData("");
       });
   };

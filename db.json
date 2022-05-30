@@ -68,8 +68,24 @@
       "title": "9",
       "gender": "male",
       "price": "300",
-      "imageSrc": "https://picsum.photos/seed/picsum2/421/261",
+      "imageSrc": "https://picsum.photos/seed/picsum1/422/262",
       "id": 9
+    },
+    {
+      "title": "10",
+      "imageSrc": "https://i.picsum.photos/id/294/422/262.jpg?hmac=wch3sY2mDv9xnRAAcA6otJUw2AP6jhIAZQtba3LYgKc",
+      "category": "Pant",
+      "gender": "Male",
+      "price": "100",
+      "id": 10
+    },
+    {
+      "title": "11",
+      "imageSrc": "https://i.picsum.photos/id/294/422/262.jpg?hmac=wch3sY2mDv9xnRAAcA6otJUw2AP6jhIAZQtba3LYgKc",
+      "category": "Pant",
+      "gender": "Male",
+      "price": "1000",
+      "id": 11
     }
   ]
 }

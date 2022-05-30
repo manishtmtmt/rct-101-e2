@@ -15,12 +15,10 @@ const Products = () => {
     axios
       .get(`http://localhost:8080/products?_page=${page}&_limit=${limit}`)
       .then((r) => {
-        // console.log(r.data)
         setProducts(r.data);
         setTotalCount(Number(r.headers["x-total-count"]));
       });
   }, [page, limit]);
-  console.log(products);
 
   const next = () => {
     setPage(page + 1);
@@ -35,16 +33,20 @@ const Products = () => {
   };
 
   const first = () => {
-    setPage(1)
-  }
+    setPage(1);
+  };
 
   const last = () => {
-    setPage(Math.floor(totalCount / limit))
-  }
+    {
+      totalCount % limit == 0
+        ? setPage(Math.floor(totalCount / limit))
+        : setPage(Math.ceil(totalCount / limit));
+    }
+  };
 
   return (
     <Flex>
-      <AddProduct setProducts={setProducts} />
+      <AddProduct setProducts={setProducts} products={products} />
       <Grid>
         {products.map((product) => (
           <Product key={product.id} product={product} />
