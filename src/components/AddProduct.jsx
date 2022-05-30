@@ -11,19 +11,18 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import axios from "axios";
 import React, { useState } from "react";
 
 const AddProduct = ({ setProducts, products }) => {
   const [data, setData] = useState({});
   const { isOpen, onOpen, onClose } = useDisclosure();
-  
+
   const onChange = (e) => {
     let { name, value } = e.target;
     setData({
       ...data,
       [name]: value,
-      ["imageSrc"]:
+      "imageSrc":
         "https://i.picsum.photos/id/294/422/262.jpg?hmac=wch3sY2mDv9xnRAAcA6otJUw2AP6jhIAZQtba3LYgKc",
     });
   };

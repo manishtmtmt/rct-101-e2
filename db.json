@@ -86,6 +86,14 @@
       "gender": "Male",
       "price": "1000",
       "id": 11
+    },
+    {
+      "title": "12",
+      "imageSrc": "https://i.picsum.photos/id/294/422/262.jpg?hmac=wch3sY2mDv9xnRAAcA6otJUw2AP6jhIAZQtba3LYgKc",
+      "category": "Pant",
+      "gender": "Male",
+      "price": "1100",
+      "id": 12
     }
   ]
 }

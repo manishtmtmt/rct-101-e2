@@ -37,11 +37,9 @@ const Products = () => {
   };
 
   const last = () => {
-    {
-      totalCount % limit == 0
-        ? setPage(Math.floor(totalCount / limit))
-        : setPage(Math.ceil(totalCount / limit));
-    }
+    totalCount % limit === 0
+      ? setPage(Math.floor(totalCount / limit))
+      : setPage(Math.ceil(totalCount / limit));
   };
 
   return (
