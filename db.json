@@ -2,7 +2,7 @@
   "products": [
     {
       "id": 1,
-      "title": "react tshirt",
+      "title": "1",
       "category": "pant",
       "gender": "male",
       "imageSrc": "https://picsum.photos/seed/picsum6/420/260",
@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "title": "chakraUI mug",
+      "title": "2",
       "category": "pant",
       "gender": "female",
       "imageSrc": "https://picsum.photos/seed/picsum5/421/261",
@@ -18,7 +18,7 @@
     },
     {
       "id": 3,
-      "title": "black tshirt",
+      "title": "3",
       "category": "jeans",
       "gender": "female",
       "imageSrc": "https://picsum.photos/seed/picsum4/422/262",
@@ -26,7 +26,7 @@
     },
     {
       "id": 4,
-      "title": "react tshirt",
+      "title": "4",
       "category": "jeans",
       "gender": "unisex",
       "imageSrc": "https://picsum.photos/seed/picsum3/420/260",
@@ -34,7 +34,7 @@
     },
     {
       "id": 5,
-      "title": "chakraUI mug",
+      "title": "5",
       "category": "jeans",
       "gender": "unisex",
       "imageSrc": "https://picsum.photos/seed/picsum2/421/261",
@@ -42,13 +42,13 @@
     },
     {
       "id": 6,
-      "title": "black tshirt",
-      "category": "category",
+      "title": "6",
+      "category": "pant",
       "imageSrc": "https://picsum.photos/seed/picsum1/422/262",
       "price": "10.25"
     },
     {
-      "title": "A",
+      "title": "7",
       "category": "shirt",
       "gender": "female",
       "price": "100",
@@ -56,7 +56,7 @@
       "id": 7
     },
     {
-      "title": "A",
+      "title": "8",
       "category": "shirt",
       "gender": "male",
       "price": "100",
@@ -65,20 +65,11 @@
     },
     {
       "category": "shirt",
-      "title": "ABCD",
+      "title": "9",
       "gender": "male",
       "price": "300",
       "imageSrc": "https://picsum.photos/seed/picsum2/421/261",
       "id": 9
-    },
-    {
-      "imageSrc": "https://picsum.photos/seed/picsum2/421/261",
-      "id": 10
-    },
-    {
-      "gender": "male",
-      "imageSrc": "https://picsum.photos/seed/picsum2/421/261",
-      "id": 11
     }
   ]
 }
