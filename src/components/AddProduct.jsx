@@ -14,14 +14,33 @@ import {
 import axios from "axios";
 import React, { useState } from "react";
 
-const AddProduct = () => {
-  const [data, setData] = useState({})
+const AddProduct = ({ setProducts }) => {
+  const [data, setData] = useState({});
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [value, setValue] = React.useState("");
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log("Hello")
-  }
+
+  const onChange = (e) => {
+    let { name, value } = e.target;
+    setData({
+      ...data,
+      [name]: value,
+    });
+  };
+
+  const onSubmit = () => {
+    axios
+      .get(`http://localhost:8080/products`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({...data}),
+      })
+      .then((r) => {
+        setProducts({...data, r});
+        setData("");
+      });
+  };
   return (
     <>
       <Button my={4} data-cy="add-product-button" onClick={onOpen}>
@@ -38,6 +57,7 @@ const AddProduct = () => {
               data-cy="add-product-title"
               placeholder="Title"
               name="title"
+              onChange={onChange}
             />
             <Text fontSize="lg" fontWeight="bold">
               Category
@@ -46,6 +66,7 @@ const AddProduct = () => {
               data-cy="add-product-category"
               placeholder="Category"
               name="category"
+              onChange={onChange}
             >
               <option data-cy="add-product-category-shirt">Shirt</option>
               <option data-cy="add-product-category-pant">Pant</option>
@@ -54,7 +75,11 @@ const AddProduct = () => {
             <Text fontSize="lg" fontWeight="bold">
               Gender
             </Text>
-            <RadioGroup data-cy="add-product-gender" value={value} name="gender">
+            <RadioGroup
+              data-cy="add-product-gender"
+              value={value}
+              name="gender"
+            >
               <Radio data-cy="add-product-gender-male" value="Male">
                 Male
               </Radio>
@@ -68,7 +93,12 @@ const AddProduct = () => {
             <Text fontSize="lg" fontWeight="bold">
               Price
             </Text>
-            <Input data-cy="add-product-price" placeholder="Price" name="price" />
+            <Input
+              data-cy="add-product-price"
+              placeholder="Price"
+              name="price"
+              onChange={onChange}
+            />
             <Button data-cy="add-product-submit-button" onClick={onSubmit}>
               Submit
             </Button>

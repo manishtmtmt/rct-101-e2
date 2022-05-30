@@ -48,7 +48,7 @@ const Products = () => {
 
   return (
     <Flex>
-      <AddProduct addProduct={addProduct} />
+      <AddProduct setProducts={setProducts} />
       <Grid>
         {products.map((product) => (
           <Product key={product.id} product={product} />
