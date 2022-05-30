@@ -26,6 +26,7 @@ const AddProduct = ({ setProducts }) => {
       [name]: value,
     });
   };
+  console.log(data);
 
   const onSubmit = () => {
     axios
@@ -34,10 +35,10 @@ const AddProduct = ({ setProducts }) => {
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify({...data}),
+        body: JSON.stringify({ ...data }),
       })
       .then((r) => {
-        setProducts({...data, r});
+        setProducts({ ...data, r });
         setData("");
       });
   };
@@ -75,18 +76,29 @@ const AddProduct = ({ setProducts }) => {
             <Text fontSize="lg" fontWeight="bold">
               Gender
             </Text>
-            <RadioGroup
-              data-cy="add-product-gender"
-              value={value}
-              name="gender"
-            >
-              <Radio data-cy="add-product-gender-male" value="Male">
+            <RadioGroup data-cy="add-product-gender" name="gender">
+              <Radio
+                data-cy="add-product-gender-male"
+                value="Male"
+                name="gender"
+                onChange={onChange}
+              >
                 Male
               </Radio>
-              <Radio data-cy="add-product-gender-female" value="Female">
+              <Radio
+                data-cy="add-product-gender-female"
+                value="Female"
+                name="gender"
+                onChange={onChange}
+              >
                 Female
               </Radio>
-              <Radio data-cy="add-product-gender-unisex" value="Unisex">
+              <Radio
+                data-cy="add-product-gender-unisex"
+                value="Unisex"
+                name="gender"
+                onChange={onChange}
+              >
                 Unisex
               </Radio>
             </RadioGroup>

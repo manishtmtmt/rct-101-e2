@@ -22,10 +22,6 @@ const Products = () => {
   }, [page, limit]);
   console.log(products);
 
-  const addProduct = (newProduct) => {
-    // addProduct
-  };
-
   const next = () => {
     setPage(page + 1);
   };
